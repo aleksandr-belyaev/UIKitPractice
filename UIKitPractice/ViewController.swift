@@ -33,13 +33,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var zeroButton: UIButton!
     
-    @IBOutlet weak var firstNumField: UILabel!
-    
-    var firstNum: Float = 0.0 {
-        didSet {
-            firstNumField.text = String(firstNum)
-        }
-    }
+    var firstNum: Float = 0.0
     var secondNum: Float = 0.0
     var currentAction: Actions = .empty
     
@@ -134,7 +128,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultField.text = "0"
-        firstNumField.text = String(firstNum)
         // Do any additional setup after loading the view.
     }
 
