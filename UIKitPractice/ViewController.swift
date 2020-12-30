@@ -33,8 +33,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var zeroButton: UIButton!
     
-    var firstNum: Float = 0.0
-    var secondNum: Float = 0.0
+    @IBOutlet weak var firstNumField: UILabel!
+    @IBOutlet weak var secondNumField: UILabel!
+    
+    var firstNum: Float = 0.0 {
+        didSet {
+            firstNumField.text = String(firstNum)
+        }
+    }
+    var secondNum: Float = 0.0 {
+        didSet {
+            secondNumField.text = String(secondNum)
+        }
+    }
     var currentACtion: Actions = .empty
     
     @IBAction func acButtonClick(_ sender: UIButton) {
@@ -55,18 +66,17 @@ class ViewController: UIViewController {
         currentACtion = .minus
     }
     @IBAction func plusButtonClick(_ sender: UIButton) {
-        if firstNum == 0, secondNum == 0 {
+        if firstNum == 0.0, secondNum == 0.0 {
             firstNum = Float(resultField.text!) ?? 0.0
             resultField.text = "0"
             currentACtion = .plus
         }
     }
     @IBAction func equalsButtonClick(_ sender: UIButton) {
-        if firstNum>0.0 || secondNum>0.0 {
-            resultField.text = String(firstNum * secondNum)
-        }
-        firstNum = 0.0
-        secondNum = 0.0
+        secondNum = Float(resultField.text!) ?? 0.0
+        resultField.text = String(firstNum + secondNum )
+//        firstNum = 0.0
+//        secondNum = 0.0
         currentACtion = .empty
     }
     
@@ -111,6 +121,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultField.text = "0"
+        firstNumField.text = String(firstNum)
+        secondNumField.text = String(secondNum)
         // Do any additional setup after loading the view.
     }
 
