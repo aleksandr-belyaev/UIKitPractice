@@ -33,9 +33,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var zeroButton: UIButton!
     
-    var firstNum = 0
-    var secondNum = 0
-    var currentACtion = ""
+    var firstNum: Float = 0.0
+    var secondNum: Float = 0.0
+    var currentACtion: Actions = .empty
     
     @IBAction func acButtonClick(_ sender: UIButton) {
         resultField.text = "0"
@@ -43,16 +43,31 @@ class ViewController: UIViewController {
     @IBAction func plusMinusButtonClick(_ sender: UIButton) {
     }
     @IBAction func percentButtonClick(_ sender: UIButton) {
+        currentACtion = .percent
     }
     @IBAction func divideButtonClick(_ sender: UIButton) {
+        currentACtion = .divide
     }
     @IBAction func multipleButtonClick(_ sender: UIButton) {
+        currentACtion = .multiple
     }
     @IBAction func minusButtonClick(_ sender: UIButton) {
+        currentACtion = .minus
     }
     @IBAction func plusButtonClick(_ sender: UIButton) {
+        if firstNum == 0, secondNum == 0 {
+            firstNum = Float(resultField.text!) ?? 0.0
+            resultField.text = "0"
+            currentACtion = .plus
+        }
     }
     @IBAction func equalsButtonClick(_ sender: UIButton) {
+        if firstNum>0.0 || secondNum>0.0 {
+            resultField.text = String(firstNum * secondNum)
+        }
+        firstNum = 0.0
+        secondNum = 0.0
+        currentACtion = .empty
     }
     
     @IBAction func dotButtonClick(_ sender: UIButton) {
@@ -105,5 +120,14 @@ extension String {
     mutating func append(_ additionalValue: String) {
         self = (self == "0" || self.isEmpty) ? additionalValue : self+additionalValue
     }
+}
+
+enum Actions {
+    case plus
+    case minus
+    case multiple
+    case divide
+    case percent
+    case empty
 }
 
