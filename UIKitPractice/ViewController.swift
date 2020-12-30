@@ -56,27 +56,39 @@ class ViewController: UIViewController {
     }
     
     @IBAction func dotButtonClick(_ sender: UIButton) {
+        if !(resultField.text?.contains(".") ?? false) {
+            resultField.text?.append(".")
+        }
     }
     @IBAction func nineButtonClick(_ sender: UIButton) {
+        resultField.text?.append("9")
     }
     @IBAction func eightButtonClick(_ sender: UIButton) {
+        resultField.text?.append("8")
     }
     @IBAction func sevenButtonClick(_ sender: UIButton) {
+        resultField.text?.append("7")
     }
     @IBAction func sixButtonClick(_ sender: UIButton) {
+        resultField.text?.append("6")
     }
     @IBAction func fiveButtonClick(_ sender: UIButton) {
+        resultField.text?.append("5")
     }
     @IBAction func fourButtonClick(_ sender: UIButton) {
+        resultField.text?.append("4")
     }
     @IBAction func threeButtonClick(_ sender: UIButton) {
+        resultField.text?.append("3")
     }
     @IBAction func twoButtonClick(_ sender: UIButton) {
+        resultField.text?.append("2")
     }
     @IBAction func oneButtonClick(_ sender: UIButton) {
         resultField.text?.append("1")
     }
     @IBAction func zeroButtonClick(_ sender: UIButton) {
+        resultField.text?.append("0")
     }
     
     
@@ -87,6 +99,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+}
 
+extension String {
+    mutating func append(_ additionalValue: String) {
+        self = (self == "0" || self.isEmpty) ? additionalValue : self+additionalValue
+    }
 }
 
