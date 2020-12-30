@@ -34,50 +34,57 @@ class ViewController: UIViewController {
     @IBOutlet weak var zeroButton: UIButton!
     
     @IBOutlet weak var firstNumField: UILabel!
-    @IBOutlet weak var secondNumField: UILabel!
     
     var firstNum: Float = 0.0 {
         didSet {
             firstNumField.text = String(firstNum)
         }
     }
-    var secondNum: Float = 0.0 {
-        didSet {
-            secondNumField.text = String(secondNum)
-        }
-    }
-    var currentACtion: Actions = .empty
+    var secondNum: Float = 0.0
+    var currentAction: Actions = .empty
     
     @IBAction func acButtonClick(_ sender: UIButton) {
         resultField.text = "0"
+        firstNum = 0.0
+        secondNum = 0.0
     }
     @IBAction func plusMinusButtonClick(_ sender: UIButton) {
     }
     @IBAction func percentButtonClick(_ sender: UIButton) {
-        currentACtion = .percent
+        actionButtonClicked(.percent)
     }
     @IBAction func divideButtonClick(_ sender: UIButton) {
-        currentACtion = .divide
+        actionButtonClicked(.divide)
     }
     @IBAction func multipleButtonClick(_ sender: UIButton) {
-        currentACtion = .multiple
+        actionButtonClicked(.multiple)
     }
     @IBAction func minusButtonClick(_ sender: UIButton) {
-        currentACtion = .minus
+        actionButtonClicked(.minus)
     }
     @IBAction func plusButtonClick(_ sender: UIButton) {
-        if firstNum == 0.0, secondNum == 0.0 {
-            firstNum = Float(resultField.text!) ?? 0.0
-            resultField.text = "0"
-            currentACtion = .plus
-        }
+        actionButtonClicked(.plus)
     }
     @IBAction func equalsButtonClick(_ sender: UIButton) {
         secondNum = Float(resultField.text!) ?? 0.0
-        resultField.text = String(firstNum + secondNum )
-//        firstNum = 0.0
-//        secondNum = 0.0
-        currentACtion = .empty
+        switch currentAction {
+            case .plus:
+                resultField.text = String(firstNum + secondNum )
+            case .minus:
+                resultField.text = String(firstNum - secondNum )
+            case .multiple:
+                resultField.text = String(firstNum * secondNum )
+            case .divide:
+                resultField.text = String(Float(firstNum/secondNum))
+            case .percent:
+                resultField.text = String(firstNum.truncatingRemainder(dividingBy: secondNum))
+            default:
+                resultField.text = "0"
+        }
+        
+        firstNum = 0.0
+        secondNum = 0.0
+        currentAction = .empty
     }
     
     @IBAction func dotButtonClick(_ sender: UIButton) {
@@ -116,13 +123,18 @@ class ViewController: UIViewController {
         resultField.text?.append("0")
     }
     
-    
+    func actionButtonClicked(_ action: Actions) {
+        if firstNum == 0.0, secondNum == 0.0 {
+            firstNum = Float(resultField.text!) ?? 0.0
+            resultField.text = "0"
+            currentAction = action
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resultField.text = "0"
         firstNumField.text = String(firstNum)
-        secondNumField.text = String(secondNum)
         // Do any additional setup after loading the view.
     }
 
@@ -130,7 +142,7 @@ class ViewController: UIViewController {
 
 extension String {
     mutating func append(_ additionalValue: String) {
-        self = (self == "0" || self.isEmpty) ? additionalValue : self+additionalValue
+        self = (self == "0" || self.isEmpty ) ? additionalValue : self+additionalValue
     }
 }
 

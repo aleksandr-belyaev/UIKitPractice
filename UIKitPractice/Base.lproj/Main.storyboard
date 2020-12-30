@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="5Y3-lS-0RG">
-                                <rect key="frame" x="104" y="331" width="207" height="302.5"/>
+                                <rect key="frame" x="104" y="331" width="207" height="269"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oas-Lg-I0W">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
@@ -32,14 +32,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secondNum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwT-Ud-DdL">
-                                        <rect key="frame" x="0.0" y="67" width="207" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="pz0-lU-y5s">
-                                        <rect key="frame" x="0.0" y="100.5" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="67" width="207" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j58-bR-LCW">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -76,7 +70,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="PSk-XX-XLE">
-                                        <rect key="frame" x="0.0" y="143.5" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="110" width="207" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSc-BN-RHV">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -113,7 +107,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-UK-YSL">
-                                        <rect key="frame" x="0.0" y="186.5" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="153" width="207" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDK-Dq-blg">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -150,7 +144,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="gK8-aK-fr7">
-                                        <rect key="frame" x="0.0" y="229.5" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="196" width="207" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iu3-AT-cQz">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -187,7 +181,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="wxq-3Z-636">
-                                        <rect key="frame" x="0.0" y="272.5" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="239" width="207" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucp-Ij-iaQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
@@ -239,7 +233,6 @@
                         <outlet property="plusButton" destination="sNv-hn-2WN" id="UCl-4M-JE8"/>
                         <outlet property="plusMinusButton" destination="0iW-FL-mX6" id="KIc-ex-zvF"/>
                         <outlet property="resultField" destination="oas-Lg-I0W" id="BQq-oe-Hn3"/>
-                        <outlet property="secondNumField" destination="VwT-Ud-DdL" id="LfS-wP-Rwi"/>
                         <outlet property="sevenButton" destination="rSc-BN-RHV" id="GHP-QK-nFr"/>
                         <outlet property="sixButton" destination="gos-Ma-WKQ" id="cco-JJ-7V1"/>
                         <outlet property="threeButton" destination="jqo-N0-UOQ" id="Qp9-da-Odm"/>
